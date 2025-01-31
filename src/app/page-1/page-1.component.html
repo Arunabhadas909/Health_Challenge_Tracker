@@ -1,0 +1,95 @@
+
+
+
+
+<!-- 
+    <form>
+        <div class="min-w-[150px] max-w-[500px] w-full ml-[100px] mt-[20px] flex flex-col justify-between">
+
+            <mat-form-field>
+                <mat-label>User Name *</mat-label>
+                <input matInput placeholder="Ex. Smith" value="John">
+              </mat-form-field>
+        </div>
+    </form>
+         -->
+
+
+    <!-- <br>
+    <br>
+    <br>
+<form>
+    <mat-form-field>
+        <mat-label> Workout Type</mat-label>
+        <mat-select [(ngModel)]="selectedWorkoutType" name="work">
+                <mat-option *ngFor="let work of workTypes" [value]="work.value">
+                 
+                  </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+      
+    </form> -->
+
+    <!-- <h4>Basic mat-select</h4>
+    <mat-form-field>
+      <mat-label>Favorite food</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+<div class="flex justify-between flex-col p-[50px] m-[10px] content-center">
+
+
+    <mat-form-field class="w-[25%]">
+        <mat-label>User Name *</mat-label>
+        <input matInput placeholder="Ex. Smith" value="John" [(ngModel)]="nameInput">
+      </mat-form-field>
+
+
+<div class="flex justify-start">
+
+    <mat-form-field class="w-[25%] mr-[20px]">
+        <mat-label> Workout Type</mat-label>
+        <mat-select [(ngModel)]="workoutType" name="work">
+                <mat-option *ngFor="let work of workTypes" [value]="work.value" [(ngModel)]="work.value">
+                    {{work.value}}
+                  </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="w-[25%] ml-[20px]">
+        <mat-label>Workout Minutes *</mat-label>
+        <input matInput placeholder="Ex. 20" value="60" [(ngModel)]="workoutTime" >
+      </mat-form-field>
+
+
+
+</div>
+
+
+<div class="text-center text-blue-600 dark:text-sky-400  w-[13%]">
+    <button  mat-raised-button class="rounded-[20px]" (click)="onAdd()"> Add Workout</button>
+
+</div>
+
+    
+
+</div>
+
+
+
+    
+
+
+ 
+
+
+    
+
+
+

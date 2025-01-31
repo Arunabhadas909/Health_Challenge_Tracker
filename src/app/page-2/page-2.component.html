@@ -1,0 +1,160 @@
+
+
+<div class="flex justify-between flex-col p-[50px] m-[10px] content-center">
+
+
+    <mat-form-field class="w-[25%]">
+        <mat-label>User Name *</mat-label>
+        <input matInput placeholder="Ex. Smith" value="John" [(ngModel)]="nameInput">
+      </mat-form-field>
+
+
+<div class="flex justify-start">
+
+    <mat-form-field class="w-[25%] mr-[20px]">
+        <mat-label> Workout Type</mat-label>
+        <mat-select [(ngModel)]="workType" name="work" multiple>
+                <mat-option *ngFor="let work of workTypes" [value]="work.value" >
+                    {{work.value}}
+                  </mat-option>
+                  <button mat-icon-button (click)="addWorkout()">
+                    <mat-icon>add_circle_outline</mat-icon>
+                  </button>
+                  <mat-form-field class="w-[25%]" >
+                    <input matInput placeholder="Ex. Smith" value="John" [(ngModel)]="newWorkout" [hidden]="isDisabled" (keydown.enter)="addWorkout()">
+                  </mat-form-field>
+                  
+                  
+
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="w-[25%] ml-[20px]">
+        <mat-label>Workout Minutes *</mat-label>
+        <input matInput placeholder="Ex. 20" value="60" [(ngModel)]="workoutTime"  >
+      </mat-form-field>
+
+
+
+</div>
+
+
+<div class="text-center text-blue-600 dark:text-sky-400  w-[13%]">
+    <button  mat-raised-button class="rounded-[20px]" (click)="onAdd1()"> Add Workout</button>
+
+</div>
+
+    
+
+</div>
+
+
+
+<!-- <div >
+
+    <div class="flex justify-between m-[10px]" *ngFor="let user of list_users">
+
+        <div id="user-name" class="b">{{user.name}}</div>
+        <div id="user-workoutType">{{user.workouts}}</div>
+        <div id="user-numberofWorkouts">{{user.NumberofWorkouts}}</div>
+        <div id="user-totalworkoutminutes">{{user.TotalWorkoutMinutes}}</div>
+
+
+    </div>
+
+
+</div> -->
+
+
+
+
+<div>
+
+
+  
+</div>
+<div class="flex justify-start m-[10px 0]">
+  <mat-form-field appearance="outline" class="w-[25%]">
+    <mat-label>Search</mat-label>
+        <input matInput type="text" [(ngModel)]="searchQuery" (input)="applyFilter()" placeholder="Search...">
+        <button mat-icon-button matSuffix (click)="clearSearch()">
+          <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div>
+<mat-form-field appearance="outline" class="sort-dropdown">
+  <mat-label>Sort By</mat-label>
+  <mat-select [(value)]="selectedSort" (selectionChange)="applySort()">
+    <mat-option *ngFor="let option of sortOptions" [value]="option.value">{{ option.viewValue }}</mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<table mat-table [dataSource]="list_users" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="workouts">
+      <th mat-header-cell *matHeaderCellDef> Workout Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.workouts}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="NumberofWorkouts">
+        <th mat-header-cell *matHeaderCellDef> NumberofWorkouts </th>
+        <td mat-cell *matCellDef="let element"> {{element.NumberofWorkouts}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="TotalWorkoutMinutes">
+        <th mat-header-cell *matHeaderCellDef> TotalWorkoutMinutes </th>
+        <td mat-cell *matCellDef="let element"> {{element.TotalWorkoutMinutes}} </td>
+      </ng-container>
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  </table>
+
+<!-- <div *ngFor="let i of list_users">
+
+
+    <p>{{i.name}}</p>
+    <p>{{i.workouts}}</p>
+    <p>{{i.NumberofWorkouts}}</p>
+    <p>{{i.TotalWorkoutMinutes}}</p>
+</div> -->
+
+
+<footer>
+
+    <mat-paginator [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page">
+</mat-paginator>
+
+</footer>
+
+
+    
+
+
+
+
+  
+
