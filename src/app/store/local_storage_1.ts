@@ -8,9 +8,7 @@ export class storage
     public nameInput='';
     constructor(private service:UserService){}
 
-   public store = [
-
-      ];
+    public store = this.service.convertUsersToArray(this.service.GetAllUsers());
 
 
 
