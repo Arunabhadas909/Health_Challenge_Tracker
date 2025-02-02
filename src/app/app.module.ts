@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Page1Component } from './page-1/page-1.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatCardModule } from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgFor } from '@angular/common';
@@ -20,18 +20,22 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { UserService } from './services/user.service';
+import { GraphsComponent } from './graphs/graphs.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 @NgModule({
   declarations: [
     AppComponent,
     Page1Component,
     Page2Component,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    GraphsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,MatFormFieldModule, MatSelectModule, NgFor, MatInputModule, FormsModule,MatButtonModule,MatPaginatorModule,MatSidenavModule,MatToolbarModule,MatTableModule,MatIconModule],
+    BrowserAnimationsModule,MatFormFieldModule, MatSelectModule, NgFor, MatInputModule, FormsModule,MatButtonModule,MatPaginatorModule,MatSidenavModule,MatToolbarModule,MatTableModule,MatIconModule,NgxChartsModule,MatCardModule],
   providers: [UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

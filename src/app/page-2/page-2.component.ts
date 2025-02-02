@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { MatTableDataSource } from '@angular/material/table';
 
+import { Router } from '@angular/router';
 import { User } from '../models/users';
 import { MatSort } from '@angular/material/sort';
-
+import { MatPaginator } from '@angular/material/paginator';
 interface workoutType{
   value: string;
 }
@@ -19,14 +20,24 @@ interface workoutType{
 })
 export class Page2Component implements AfterViewInit {
 
-  constructor(private userService:UserService){}
+  constructor(private userService:UserService,  private route: Router){}
 
   @ViewChild(MatSort) sort!: MatSort;
+
   public nameInput:string ='';
   public workType:string[]=[''];
   public workoutTime:number=60;
   public newWorkout:string='';
   public isDisabled:boolean=true;
+
+
+  list_users = new MatTableDataSource(this.userService.GetAllUsers());
+ 
+
+  displayedColumns: string[] = ['name', 'workouts','NumberofWorkouts','TotalWorkoutMinutes'];
+
+
+
 
   workTypes:workoutType[] = [
     {value: 'Running'},{value: 'Cycling'},{value: 'Swimming'},{value:'yoga'},{value:'MMA'},{value:'Cricket'},{value:'Football'}
@@ -51,10 +62,19 @@ addWorkout()
   console.log(this.workTypes);
 }
 
-  list_users = new MatTableDataSource(this.userService.GetAllUsers());
+navigateToPage()
+{
+  this.route.navigate(['/graphs']);
+}
 
-  displayedColumns: string[] = ['name', 'workouts','NumberofWorkouts','TotalWorkoutMinutes'];
 
+  // list_users = new MatTableDataSource(this.userService.GetAllUsers());
+
+  // displayedColumns: string[] = ['name', 'workouts','NumberofWorkouts','TotalWorkoutMinutes'];
+
+
+  
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   searchQuery: string = '';
   selectedSort: keyof User = 'name';
@@ -72,6 +92,7 @@ addWorkout()
 
   ngAfterViewInit() {
     this.list_users.sort = this.sort;
+    this.list_users.paginator=this.paginator;
   }
 
 
@@ -98,4 +119,13 @@ applySort() {
   });
 
 }
+
+
+
+
+
+
+
+
+
 }

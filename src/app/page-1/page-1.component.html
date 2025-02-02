@@ -46,25 +46,25 @@
 
     <mat-form-field class="w-[25%]">
         <mat-label>User Name *</mat-label>
-        <input matInput placeholder="Ex. Smith" value="John" [(ngModel)]="nameInput">
+        <input matInput placeholder="Ex. Smith" value="John" [(ngModel)]="nameInput" ngDefaultControl>
       </mat-form-field>
 
 
 <div class="flex justify-start">
 
-    <mat-form-field class="w-[25%] mr-[20px]">
+    <mat-form-field class="w-[25%] mr-[20px]"ngDefaultControl>
         <mat-label> Workout Type</mat-label>
-        <mat-select [(ngModel)]="workoutType" name="work">
-                <mat-option *ngFor="let work of workTypes" [value]="work.value" [(ngModel)]="work.value">
+        <mat-select [(ngModel)]="workoutType" name="work" ngDefaultControl>
+                <mat-option *ngFor="let work of workTypes" [value]="work.value" [(ngModel)]="work.value" ngDefaultControl>
                     {{work.value}}
                   </mat-option>
 
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="w-[25%] ml-[20px]">
+      <mat-form-field class="w-[25%] ml-[20px]" ngDefaultControl>
         <mat-label>Workout Minutes *</mat-label>
-        <input matInput placeholder="Ex. 20" value="60" [(ngModel)]="workoutTime" >
+        <input matInput placeholder="Ex. 20" value="60" [(ngModel)]="workoutTime" ngDefaultControl >
       </mat-form-field>
 
 
