@@ -1,28 +1,3 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
-// import { MatTableModule } from '@angular/material/table';
-// import { Page2Component } from './page-2.component';
-// import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
-
-// describe('Page2Component', () => {
-//   let component: Page2Component;
-//   let fixture: ComponentFixture<Page2Component>;
-
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [Page2Component],
-//       imports:[FormsModule,MatTableModule],
-//       schemas:[CUSTOM_ELEMENTS_SCHEMA],
-//     });
-//     fixture = TestBed.createComponent(Page2Component);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
 
 
 
